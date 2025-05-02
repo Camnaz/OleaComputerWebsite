@@ -15,14 +15,15 @@ export default function Logo() {
         <Image
           src="/images/OleaLogoTransparent250x100.svg"
           alt="Olea Computer Logo"
-          width={160}
-          height={64}
+          width={250}
+          height={100}
           fetchPriority="high"
           className={styles.logoImage}
           style={{ 
             objectFit: 'contain',
             objectPosition: 'left center'
           }}
+          unoptimized
         />
       </m.div>
     </Link>
