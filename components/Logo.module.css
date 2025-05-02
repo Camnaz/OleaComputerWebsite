@@ -1,0 +1,40 @@
+.logoLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  transition: opacity 0.3s ease;
+}
+
+.logoLink:hover {
+  opacity: 0.8;
+}
+
+.logo {
+  width: 160px;
+  height: auto;
+  color: var(--olea-blue);
+  display: flex;
+  align-items: center;
+  transition: opacity 0.3s ease;
+}
+
+.logo svg {
+  fill: currentColor;
+}
+
+.logo:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    width: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 110px;
+  }
+}
