@@ -17,12 +17,27 @@
   display: flex;
   align-items: center;
   transition: opacity 0.3s ease;
+  position: relative;
+}
+
+.logo::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background: transparent;
+  pointer-events: none;
 }
 
 .logo svg {
   fill: currentColor;
   width: 100%;
   height: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .logo:hover {
