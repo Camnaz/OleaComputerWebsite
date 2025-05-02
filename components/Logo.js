@@ -12,19 +12,21 @@ export default function Logo() {
         transition={{ duration: 0.3, ease: 'easeOut' }}
         className={styles.logoWrapper}
       >
-        <Image
-          src="/images/OleaLogoTransparent250x100.svg"
-          alt="Olea Computer Logo"
-          width={160}
-          height={64}
-          fetchPriority="high"
-          className={styles.logoImage}
-          style={{ 
-            objectFit: 'contain',
-            objectPosition: 'left center'
-          }}
-          unoptimized
-        />
+        <div className={styles.logoContainer}>
+          <Image
+            src="/images/OleaLogoTransparent250x100.svg"
+            alt="Olea Computer Logo"
+            width={160}
+            height={64}
+            fetchPriority="high"
+            className={styles.logoImage}
+            style={{ 
+              objectFit: 'contain',
+              objectPosition: 'left center'
+            }}
+            unoptimized
+          />
+        </div>
       </m.div>
     </Link>
   );
