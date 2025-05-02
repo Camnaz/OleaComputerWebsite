@@ -74,8 +74,6 @@ export default function Navbar() {
                 style={{
                   objectFit: 'contain',
                   objectPosition: 'left center',
-                  width: '100%',
-                  height: 'auto',
                 }}
                 unoptimized
               />
