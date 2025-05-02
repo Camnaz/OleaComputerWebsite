@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import Logo from './Logo';
+import { m } from 'framer-motion';
+import Image from 'next/image';
 import styles from './Navbar.module.css';
+import logoStyles from './Logo.module.css';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -54,7 +56,32 @@ export default function Navbar() {
       {/* Navbar */}
       <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
         <div className={styles.navContent}>
-          <Logo />
+          {/* Integrated Logo Content Start */}
+          <Link href="/" className={logoStyles.logoLink}>
+            <m.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, ease: 'easeOut' }}
+              className={logoStyles.logo}
+            >
+              <Image
+                src="/images/OleaLogoTransparent250x100.svg"
+                alt="Olea Computer Logo"
+                width={160}
+                height={64}
+                fetchPriority="high"
+                className={logoStyles.logoImage}
+                style={{
+                  objectFit: 'contain',
+                  objectPosition: 'left center',
+                  width: '100%',
+                  height: 'auto',
+                }}
+                unoptimized
+              />
+            </m.div>
+          </Link>
+          {/* Integrated Logo Content End */}
           
           <button 
             className={`${styles.hamburger} ${isOpen ? styles.open : ''}`}
