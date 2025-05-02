@@ -202,13 +202,20 @@
 
 .featured .cta {
   display: inline-block;
-  margin-top: 0.5rem;
-  padding: var(--space-sm) var(--space-xl);
-  background: var(--olea-blue);
-  color: white;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: var(--olea-blue);
   border-radius: var(--radius-sm);
   font-weight: 500;
+  text-decoration: none;
   transition: all 0.3s ease;
+  border: 1px solid var(--olea-blue);
+}
+
+.cta:hover {
+  color: #000;
+  transform: translateX(4px);
 }
 
 .cta:hover {
@@ -351,9 +358,15 @@
 .comingSoon {
   margin: 4rem 0;
   text-align: center;
-  padding: 2rem;
+  padding: 3rem 2rem;
   background: rgba(15, 43, 73, 0.02);
   border-radius: 1rem;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-clip: padding-box;
+  box-shadow: 0 0 0 1px rgba(15, 43, 73, 0.02);
 }
 
 .contactGrid {
@@ -399,13 +412,20 @@
 
 .contactCard .cta {
   display: inline-block;
-  margin-top: auto;
-  padding: var(--space-sm) var(--space-xl);
-  background: var(--olea-blue);
-  color: white;
+  margin-top: 1.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  color: var(--olea-blue);
   border-radius: var(--radius-sm);
   font-weight: 500;
+  text-decoration: none;
   transition: all 0.3s ease;
+  border: 1px solid var(--olea-blue);
+}
+
+.cta:hover {
+  color: #000;
+  transform: translateX(4px);
 }
 
 .contactCard .cta:hover {
@@ -453,9 +473,16 @@
 
 .link {
   display: inline-block;
-  margin-top: 0.5rem;
+  margin-top: 1.5rem;
   color: var(--olea-blue);
   font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.link:hover {
+  color: #000;
+  transform: translateX(4px);
 }
 
 .productSection {

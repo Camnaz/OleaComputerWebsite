@@ -12,15 +12,19 @@
 
 .logo {
   width: 160px;
-  height: auto;
+  height: 64px;
   color: var(--olea-blue);
   display: flex;
   align-items: center;
   transition: opacity 0.3s ease;
+  overflow: visible;
 }
 
 .logo svg {
   fill: currentColor;
+  overflow: visible;
+  width: 100%;
+  height: auto;
 }
 
 .logo:hover {
@@ -30,11 +34,13 @@
 @media (max-width: 768px) {
   .logo {
     width: 130px;
+    height: 52px;
   }
 }
 
 @media (max-width: 480px) {
   .logo {
     width: 110px;
+    height: 44px;
   }
 }
