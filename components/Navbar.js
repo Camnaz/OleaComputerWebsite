@@ -10,12 +10,14 @@ export default function Navbar() {
   const router = useRouter();
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
+    if (typeof window !== 'undefined') {
+      const handleScroll = () => {
+        setIsScrolled(window.scrollY > 20);
+      };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }
   }, []);
 
   useEffect(() => {
@@ -42,7 +44,14 @@ export default function Navbar() {
 
   return (
     <>
-      <div className={`menuBackdrop ${isOpen ? 'visible' : ''}`} onClick={toggleMenu} />
+      {/* Backdrop */}
+      <div 
+        className={`menuBackdrop ${isOpen ? 'visible' : ''}`} 
+        onClick={toggleMenu}
+        aria-hidden="true"
+      />
+      
+      {/* Navbar */}
       <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
         <div className={styles.navContent}>
           <Logo />
@@ -51,36 +60,27 @@ export default function Navbar() {
             className={`${styles.hamburger} ${isOpen ? styles.open : ''}`}
             onClick={toggleMenu}
             aria-label="Toggle menu"
+            aria-expanded={isOpen}
           >
-            <span></span>
-            <span></span>
-            <span></span>
+            <span />
+            <span />
+            <span />
           </button>
 
-          <div className={`${styles.navLinks} ${isOpen ? styles.open : ''}`}>
+          <div 
+            className={`${styles.navLinks} ${isOpen ? styles.open : ''}`}
+            role="navigation"
+          >
             {links.map((link, i) => (
-              link.external ? (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className={styles.navLink}
-                  style={{ '--index': i }}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {link.text}
-                </a>
-              ) : (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={styles.navLink}
-                  style={{ '--index': i }}
-                  aria-current={router.pathname === link.href ? 'page' : undefined}
-                >
-                  {link.text}
-                </Link>
-              )
+              <Link
+                key={link.href}
+                href={link.href}
+                className={styles.navLink}
+                style={{ '--index': i }}
+                aria-current={router.pathname === link.href ? 'page' : undefined}
+              >
+                {link.text}
+              </Link>
             ))}
           </div>
         </div>

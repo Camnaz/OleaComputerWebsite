@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { LazyMotion, domAnimation, AnimatePresence, m } from 'framer-motion';
+import '../styles/globals.css';  // Make sure this is first
 import Navbar from '../components/Navbar';
-import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();

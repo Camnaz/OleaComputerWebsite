@@ -259,6 +259,8 @@ input:focus, textarea:focus {
   border-radius: var(--radius-md);
   padding: var(--card-padding);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .card:hover {
@@ -275,13 +277,100 @@ input:focus, textarea:focus {
   }
 }
 
-/* Utility classes */
-.scrollLock {
+@supports (-webkit-overflow-scrolling: touch) {
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: contain;
+    position: relative;
+    width: 100%;
+  }
+  
+  #__next {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+  }
+
+  .card {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  .card:active {
+    transform: translateY(-2px);
+    transition: transform 0.2s ease;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* Optimize transitions for touch devices */
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a:active,
+  button:active {
+    transform: scale(0.98);
+    transition: transform 0.1s ease;
+  }
+}
+
+@media (max-width: 768px) {
+  * {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+  }
+
+  .scrollLock {
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+  body {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-y: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+  }
+  
+  #__next {
+    position: absolute;
+    width: 100%;
+    min-height: 100%;
+  }
+}
+
+@media (hover: none) {
+  .card:active {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--olea-blue);
+    background: white;
+  }
+  
+  .card:hover {
+    transform: none;
+    box-shadow: none;
+    border-color: var(--card-border);
+    background: var(--card-bg);
+  }
+}
+
+/* Global utility classes */
+:global(.scrollLock) {
   overflow: hidden;
   touch-action: none;
 }
 
-.menuBackdrop {
+:global(.menuBackdrop) {
   position: fixed;
   inset: 0;
   background: rgba(15, 43, 73, 0.05);
@@ -293,7 +382,7 @@ input:focus, textarea:focus {
   z-index: 999;
 }
 
-.menuBackdrop.visible {
+:global(.menuBackdrop.visible) {
   opacity: 1;
   pointer-events: auto;
 }

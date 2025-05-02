@@ -1,10 +1,17 @@
-module.exports = {
-  reactStrictMode: true,
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  output: 'standalone',
   images: {
-    domains: ['your-image-domain.com'], // Replace with your image domain if needed
+    domains: [], // Add any external image domains you use
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    formats: ['image/webp'],
   },
-  webpack: (config) => {
-    // Custom webpack configurations can be added here
-    return config;
-  },
-};
+  reactStrictMode: true,
+  poweredByHeader: false,
+  generateEtags: true,
+  compress: true,
+  productionBrowserSourceMaps: false,
+}
+
+module.exports = nextConfig

@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "buildCommand": "npm run build",
+  "devCommand": "npm run dev",
+  "regions": ["sfo1"],
+  "routes": [
+    { "src": "^/products/(?!_next).*", "dest": "/products/$1" },
+    { "src": "^/(?!_next|static|api).*", "dest": "/$1" }
+  ],
+  "github": {
+    "silent": true
+  }
+}
