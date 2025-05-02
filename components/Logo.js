@@ -21,10 +21,7 @@ export default function Logo() {
           className={styles.logoImage}
           style={{ 
             objectFit: 'contain',
-            objectPosition: 'left center',
-            width: '100%',
-            height: '100%',
-            maxWidth: '100%'
+            objectPosition: 'left center'
           }}
         />
       </m.div>
