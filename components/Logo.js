@@ -15,8 +15,8 @@ export default function Logo() {
         <Image
           src="/images/OleaLogoTransparent250x100.svg"
           alt="Olea Computer Logo"
-          width={250}
-          height={100}
+          width={160}
+          height={64}
           fetchPriority="high"
           className={styles.logoImage}
           style={{ 

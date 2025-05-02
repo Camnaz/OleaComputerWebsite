@@ -17,12 +17,16 @@
   display: flex;
   align-items: center;
   transition: opacity 0.3s ease;
+  position: relative;
+  overflow: visible;
 }
 
 .logo svg {
   fill: currentColor;
   width: 100%;
   height: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .logo:hover {
