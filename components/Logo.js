@@ -1,33 +1,21 @@
 import Link from 'next/link';
-import { m } from 'framer-motion';
 import Image from 'next/image';
 import styles from './Logo.module.css';
 
 export default function Logo() {
   return (
     <Link href="/" className={styles.logoLink}>
-      <m.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.3, ease: 'easeOut' }}
-        className={styles.logoWrapper}
-      >
-        <div className={styles.logoContainer}>
-          <Image
-            src="/images/OleaLogoTransparent250x100.svg"
-            alt="Olea Computer Logo"
-            width={160}
-            height={64}
-            fetchPriority="high"
-            className={styles.logoImage}
-            style={{ 
-              objectFit: 'contain',
-              objectPosition: 'left center'
-            }}
-            unoptimized
-          />
-        </div>
-      </m.div>
+      <div className={styles.logo}>
+        <Image
+          src="/images/OleaLogoTransparent250x100.svg"
+          alt="Olea Computer Logo"
+          width={160}
+          height={64}
+          priority
+          className={styles.logoImage}
+          unoptimized
+        />
+      </div>
     </Link>
   );
 }

@@ -3,8 +3,7 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
+  "/products": "pages/products.js",
   "/philosophy": "pages/philosophy.js",
-  "/contact": "pages/contact.js",
-  "/technology": "pages/technology.js",
-  "/products": "pages/products.js"
+  "/technology": "pages/technology.js"
 }

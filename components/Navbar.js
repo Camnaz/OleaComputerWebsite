@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { m } from 'framer-motion';
 import Image from 'next/image';
 import styles from './Navbar.module.css';
-import logoStyles from './Logo.module.css';
+import Logo from './Logo';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +32,20 @@ export default function Navbar() {
     return () => router.events.off('routeChangeStart', handleRouteChange);
   }, [router]);
 
+  useEffect(() => {
+    // Always scroll to the top of the page after a route finishes changing.
+    // This prevents the new page from inheriting the previous scroll position
+    // which is especially noticeable on mobile devices.
+    const handleRouteComplete = () => {
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+      }
+    };
+
+    router.events.on('routeChangeComplete', handleRouteComplete);
+    return () => router.events.off('routeChangeComplete', handleRouteComplete);
+  }, [router]);
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
     document.body.classList.toggle('scrollLock');
@@ -57,28 +71,7 @@ export default function Navbar() {
       <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
         <div className={styles.navContent}>
           {/* Integrated Logo Content Start */}
-          <Link href="/" className={logoStyles.logoLink}>
-            <m.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.3, ease: 'easeOut' }}
-              className={logoStyles.logo}
-            >
-              <Image
-                src="/images/OleaLogoTransparent250x100.svg"
-                alt="Olea Computer Logo"
-                width={160}
-                height={64}
-                fetchPriority="high"
-                className={logoStyles.logoImage}
-                style={{
-                  objectFit: 'contain',
-                  objectPosition: 'left center',
-                }}
-                unoptimized
-              />
-            </m.div>
-          </Link>
+          <Logo />
           {/* Integrated Logo Content End */}
           
           <button 

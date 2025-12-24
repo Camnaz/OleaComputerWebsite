@@ -1,0 +1,21 @@
+<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Olive branch with 3 leaves -->
+  <!-- Center stem -->
+  <path d="M40 70 Q40 40 40 16" stroke="#2F4B3F" stroke-width="2" stroke-linecap="round"/>
+  
+  <!-- Left leaf - lower -->
+  <path d="M40 52 Q28 48 24 36 Q28 44 40 48" stroke="#2F4B3F" stroke-width="1.5" fill="#2F4B3F" fill-opacity="0.1"/>
+  <path d="M40 50 Q32 47 29 40" stroke="#2F4B3F" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  
+  <!-- Right leaf - middle -->
+  <path d="M40 40 Q54 34 58 20 Q52 30 40 36" stroke="#2F4B3F" stroke-width="1.5" fill="#2F4B3F" fill-opacity="0.1"/>
+  <path d="M40 38 Q50 33 54 24" stroke="#2F4B3F" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  
+  <!-- Left leaf - upper -->
+  <path d="M40 30 Q26 24 22 10 Q28 22 40 26" stroke="#2F4B3F" stroke-width="1.5" fill="#2F4B3F" fill-opacity="0.1"/>
+  <path d="M40 28 Q30 23 26 14" stroke="#2F4B3F" stroke-width="1" stroke-linecap="round" opacity="0.5"/>
+  
+  <!-- Small olive fruit -->
+  <ellipse cx="48" cy="54" rx="4" ry="5" fill="#2F4B3F" fill-opacity="0.2" stroke="#2F4B3F" stroke-width="1.5"/>
+  <path d="M48 49 L48 47" stroke="#2F4B3F" stroke-width="1.5" stroke-linecap="round"/>
+</svg>
